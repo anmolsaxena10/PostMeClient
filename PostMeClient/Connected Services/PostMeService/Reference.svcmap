@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="93a4ba20-34e2-43fd-b39f-9a48944543f3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/PostMeService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="525d4b04-9925-4344-b736-6382537c374d" SourceId="1" SourceUrl="http://localhost:8733/PostMeService/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="2f9f6704-20e6-495a-b33a-3a10546195a6" SourceId="1" SourceUrl="http://localhost:8733/PostMeService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="aea3444d-7ad2-46cf-81fb-822c3abde776" SourceId="1" SourceUrl="http://localhost:8733/PostMeService/?xsd=xsd2" />
+    <MetadataFile FileName="PostMeService.wsdl" MetadataType="Wsdl" ID="8d9525c9-ae7c-4421-8a50-9e43003b24b7" SourceId="1" SourceUrl="http://localhost:8733/PostMeService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="bb481a59-bbd1-4d9a-9b6a-d37424f45016" SourceId="1" SourceUrl="http://localhost:8733/PostMeService/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
