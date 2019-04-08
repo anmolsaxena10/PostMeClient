@@ -51,7 +51,17 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/Register">Register</a></li>
+                        <% if (Session["user"] == null)
+                          { %>
+                            <li><a runat="server" href="~/Register">Register</a></li>
+                            <li><a runat="server" href="~/Login">Login</a></li>
+                        <%}
+                            else
+                           { %>
+                            <li><a runat="server" href="~/ViewPosts">View Posts</a></li>
+                            <li><a runat="server" href="~/AddPost">Add Post</a></li>
+                            <li><a runat="server" href="~/MyComments">My Comments</a></li>
+                        <% } %>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>

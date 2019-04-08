@@ -266,7 +266,7 @@ namespace PostMeClient.PostMeService {
         private PostMeClient.PostMeService.Post postField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private PostMeClient.PostMeService.Comment replyOfCommentField;
+        private int replyOfCommentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime timeField;
@@ -327,12 +327,12 @@ namespace PostMeClient.PostMeService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public PostMeClient.PostMeService.Comment replyOfComment {
+        public int replyOfComment {
             get {
                 return this.replyOfCommentField;
             }
             set {
-                if ((object.ReferenceEquals(this.replyOfCommentField, value) != true)) {
+                if ((this.replyOfCommentField.Equals(value) != true)) {
                     this.replyOfCommentField = value;
                     this.RaisePropertyChanged("replyOfComment");
                 }
@@ -398,6 +398,12 @@ namespace PostMeClient.PostMeService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/getUser", ReplyAction="http://tempuri.org/IPostMeService/getUserResponse")]
         System.Threading.Tasks.Task<PostMeClient.PostMeService.User> getUserAsync(int userId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/verify", ReplyAction="http://tempuri.org/IPostMeService/verifyResponse")]
+        PostMeClient.PostMeService.User verify(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/verify", ReplyAction="http://tempuri.org/IPostMeService/verifyResponse")]
+        System.Threading.Tasks.Task<PostMeClient.PostMeService.User> verifyAsync(string username, string password);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/addUser", ReplyAction="http://tempuri.org/IPostMeService/addUserResponse")]
         int addUser(PostMeClient.PostMeService.User user);
         
@@ -441,10 +447,10 @@ namespace PostMeClient.PostMeService {
         System.Threading.Tasks.Task<PostMeClient.PostMeService.Post> updatePostAsync(PostMeClient.PostMeService.Post post);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/filterPosts", ReplyAction="http://tempuri.org/IPostMeService/filterPostsResponse")]
-        PostMeClient.PostMeService.Post[] filterPosts(System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date);
+        PostMeClient.PostMeService.Post[] filterPosts(int page, System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/filterPosts", ReplyAction="http://tempuri.org/IPostMeService/filterPostsResponse")]
-        System.Threading.Tasks.Task<PostMeClient.PostMeService.Post[]> filterPostsAsync(System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date);
+        System.Threading.Tasks.Task<PostMeClient.PostMeService.Post[]> filterPostsAsync(int page, System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPostMeService/getComment", ReplyAction="http://tempuri.org/IPostMeService/getCommentResponse")]
         PostMeClient.PostMeService.Comment getComment(int commentId);
@@ -512,6 +518,14 @@ namespace PostMeClient.PostMeService {
             return base.Channel.getUserAsync(userId);
         }
         
+        public PostMeClient.PostMeService.User verify(string username, string password) {
+            return base.Channel.verify(username, password);
+        }
+        
+        public System.Threading.Tasks.Task<PostMeClient.PostMeService.User> verifyAsync(string username, string password) {
+            return base.Channel.verifyAsync(username, password);
+        }
+        
         public int addUser(PostMeClient.PostMeService.User user) {
             return base.Channel.addUser(user);
         }
@@ -568,12 +582,12 @@ namespace PostMeClient.PostMeService {
             return base.Channel.updatePostAsync(post);
         }
         
-        public PostMeClient.PostMeService.Post[] filterPosts(System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date) {
-            return base.Channel.filterPosts(userId, headline, date);
+        public PostMeClient.PostMeService.Post[] filterPosts(int page, System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date) {
+            return base.Channel.filterPosts(page, userId, headline, date);
         }
         
-        public System.Threading.Tasks.Task<PostMeClient.PostMeService.Post[]> filterPostsAsync(System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date) {
-            return base.Channel.filterPostsAsync(userId, headline, date);
+        public System.Threading.Tasks.Task<PostMeClient.PostMeService.Post[]> filterPostsAsync(int page, System.Nullable<int> userId, string headline, System.Nullable<System.DateTime> date) {
+            return base.Channel.filterPostsAsync(page, userId, headline, date);
         }
         
         public PostMeClient.PostMeService.Comment getComment(int commentId) {

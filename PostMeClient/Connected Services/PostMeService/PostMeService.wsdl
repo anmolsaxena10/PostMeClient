@@ -13,6 +13,12 @@
   <wsdl:message name="IPostMeService_getUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:getUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IPostMeService_verify_InputMessage">
+    <wsdl:part name="parameters" element="tns:verify" />
+  </wsdl:message>
+  <wsdl:message name="IPostMeService_verify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:verifyResponse" />
+  </wsdl:message>
   <wsdl:message name="IPostMeService_addUser_InputMessage">
     <wsdl:part name="parameters" element="tns:addUser" />
   </wsdl:message>
@@ -96,6 +102,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPostMeService/getUser" message="tns:IPostMeService_getUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPostMeService/getUserResponse" message="tns:IPostMeService_getUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="verify">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPostMeService/verify" message="tns:IPostMeService_verify_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPostMeService/verifyResponse" message="tns:IPostMeService_verify_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="addUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IPostMeService/addUser" message="tns:IPostMeService_addUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPostMeService/addUserResponse" message="tns:IPostMeService_addUser_OutputMessage" />
@@ -153,6 +163,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="getUser">
       <soap:operation soapAction="http://tempuri.org/IPostMeService/getUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verify">
+      <soap:operation soapAction="http://tempuri.org/IPostMeService/verify" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

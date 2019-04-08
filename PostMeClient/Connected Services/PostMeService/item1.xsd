@@ -32,7 +32,7 @@
       <xs:element minOccurs="0" name="commentId" type="xs:int" />
       <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="post" nillable="true" type="tns:Post" />
-      <xs:element minOccurs="0" name="replyOfComment" nillable="true" type="tns:Comment" />
+      <xs:element minOccurs="0" name="replyOfComment" type="xs:int" />
       <xs:element minOccurs="0" name="time" type="xs:dateTime" />
       <xs:element minOccurs="0" name="upvotes" type="xs:int" />
       <xs:element minOccurs="0" name="user" nillable="true" type="tns:User" />
